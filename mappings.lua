@@ -11,22 +11,38 @@ M.general = {
     -- lazygit
     ["<leader>gg"] = { ":LazyGit<CR>", "Open LazyGit floating window" },
     -- session manager
-    ["<leader>sc"] = {
-      ":SessionManager load_current_dir_session<CR>",
-      "Will remove all buffers and :source the last saved session file of the current directory.",
-    },
-    ["<leader>ss"] = {
-      ":SessionManager save_current_session<CR>",
-      "Works like :mksession, but saves/creates current directory as a session in sessions_dir.",
-    },
     ["<leader>sl"] = {
-      ":SessionManager load_session<CR>",
+      ":Autosession search<CR>",
       "Select and load session",
     },
+    ["<leader>ss"] = {
+      ":SaveSession<CR>",
+      "Save or create a session in the currently set `auto_session_root_dir`",
+    },
+    ["<leader>sr"] = {
+      ":RestoreSession<CR>",
+      "Restore a previously saved session based on the `cwd`",
+    },
     ["<leader>sd"] = {
-      ":SessionManager delete_session<CR>",
+      ":Autosession delete<CR>",
       "Select and delete session",
     },
+    -- ["<leader>sc"] = {
+    --   ":SessionManager load_current_dir_session<CR>",
+    --   "Will remove all buffers and :source the last saved session file of the current directory.",
+    -- },
+    -- ["<leader>ss"] = {
+    --   ":SessionManager save_current_session<CR>",
+    --   "Works like :mksession, but saves/creates current directory as a session in sessions_dir.",
+    -- },
+    -- ["<leader>sl"] = {
+    --   ":SessionManager load_session<CR>",
+    --   "Select and load session",
+    -- },
+    -- ["<leader>sd"] = {
+    --   ":SessionManager delete_session<CR>",
+    --   "Select and delete session",
+    -- },
   },
   i = {
     -- ["jk"] = { "<ESC>", "escape insert mode" , opts = { nowait = true }},
