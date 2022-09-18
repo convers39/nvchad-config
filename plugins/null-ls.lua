@@ -11,21 +11,31 @@ local sources = {
   -- webdev stuff
   -- b.formatting.deno_fmt,
   b.formatting.prettier.with {
-    filetypes = { "html", "markdown", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "json" },
+    filetypes = {
+      "html",
+      "markdown",
+      "css",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+      "json",
+    },
   },
   -- Lua
   b.formatting.stylua,
   -- Shell
   b.formatting.shfmt,
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
   -- cpp
   -- b.formatting.clang_format,
+  b.formatting.yamlfmt,
   b.formatting.rustfmt,
   -- diagnostics
   b.diagnostics.eslint,
   b.diagnostics.codespell,
   b.diagnostics.hadolint,
   b.diagnostics.mypy,
+  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
   -- code_actions
   b.code_actions.refactoring,
   b.code_actions.eslint,
