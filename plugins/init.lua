@@ -4,8 +4,26 @@ return {
   ["tpope/vim-repeat"] = {},
   ["tpope/vim-surround"] = {},
   ["tpope/vim-fugitive"] = {},
-  ["folke/todo-comments.nvim"] = {},
-  ["folke/trouble.nvim"] = {},
+  ["folke/todo-comments.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  },
+  ["folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+  },
   ["mg979/vim-visual-multi"] = {},
   ["kdheepak/lazygit.nvim"] = {},
   -- ["Shatur/neovim-session-manager"] = {
@@ -26,9 +44,9 @@ return {
           pre_cwd_changed_hook = nil, -- already the default, no need to specify like this, only here as an example
           post_cwd_changed_hook = function() -- example refreshing the lualine status line _after_ the cwd changes
             require("lualine").refresh() -- refresh lualine so the new session name is displayed in the status bar
-            local nvim_tree = require "nvim-tree"
-            nvim_tree.change_dir(vim.fn.getcwd())
-            nvim_tree.refresh()
+            -- local nvim_tree = require "nvim-tree"
+            -- nvim_tree.change_dir(vim.fn.getcwd())
+            -- nvim_tree.refresh()
           end,
         },
       }
