@@ -5,6 +5,7 @@ vim.g.luasnippets_path = "custom/snippets"
 -- popup window height
 vim.opt.pumheight = 15
 -- folding
+vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.fillchars = { eob = "-", fold = " " }
 -- auto-session suggest settings
