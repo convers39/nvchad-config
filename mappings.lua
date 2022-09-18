@@ -4,10 +4,20 @@ M.general = {
   n = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
     -- resize windows
-    ["<M-Right>"] = { ":vertical resize +5<CR>", "window vertical size +5" },
-    ["<M-Left>"] = { ":vertical resize -5<CR>", "window vertical size -5" },
-    ["<M-Down>"] = { ":resize -5<CR>", "window size -5" },
-    ["<M-Up>"] = { ":resize +5<CR>", "window size +5" },
+    ["<A-Right>"] = { ":vertical resize +2<CR>", "window vertical size +2" },
+    ["<A-Left>"] = { ":vertical resize -2<CR>", "window vertical size -2" },
+    ["<A-Down>"] = { ":resize -2<CR>", "window size -2" },
+    ["<A-Up>"] = { ":resize +2<CR>", "window size +2" },
+    ["<A-=>"] = { "<C-w>=", "half window size" },
+    -- navigation
+    ["<A-h>"] = { "<C-w>h", "Go to the left window" },
+    ["<A-j>"] = { "<C-w>j", "Go to the down window" },
+    ["<A-k>"] = { "<C-w>k", "Go to the up window" },
+    ["<A-l>"] = { "<C-w>l", "Go to the right window" },
+    ["<A-q>"] = { "<C-w>q", "Close current window" },
+    -- split
+    ["<A-v>"] = { "<C-w>v", "Split vertically" },
+    ["<A-s>"] = { "<C-w>s", "Split horizontally" },
     -- lazygit
     ["<leader>gg"] = { ":LazyGit<CR>", "Open LazyGit floating window" },
     -- session manager
@@ -81,13 +91,19 @@ M.nvterm = {
       end,
       "toggle horizontal term",
     },
-
+    -- ["<A-v>"] = "",
     ["<A-V>"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
       "toggle vertical term",
     },
+    -- navigate from terminal to other window
+    ["<ESC>"] = { [[<C-\><C-N>]], "Esc terminal insert mode" },
+    ["<A-h>"] = { [[<C-\><C-N><C-w>h]], "Go to the left window" },
+    ["<A-j>"] = { [[<C-\><C-N><C-w>j]], "Go to the down window" },
+    ["<A-k>"] = { [[<C-\><C-N><C-w>k]], "Go to the up window" },
+    ["<A-l>"] = { [[<C-\><C-N><C-w>l]], "Go to the right window" },
   },
 
   n = {
