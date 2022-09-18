@@ -8,6 +8,14 @@ return {
   ["folke/trouble.nvim"] = {},
   ["mg979/vim-visual-multi"] = {},
   ["kdheepak/lazygit.nvim"] = {},
+  ["Shatur/neovim-session-manager"] = {
+    config = function()
+      require("session_manager").setup {
+        autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+      }
+    end,
+  },
+  -- Override plugin definition options
   ["tzachar/cmp-tabnine"] = {
     after = "nvim-cmp",
     run = "./install.sh",
@@ -17,10 +25,6 @@ return {
   ["hrsh7th/nvim-cmp"] = {
     override_options = overrides.cmp,
   },
-
-  -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
-
-  -- Override plugin definition options
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -30,13 +34,11 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
     override_options = overrides.alpha,
-    --gruvbox_light cmd = "Alpha",
   },
 
   -- overrde plugin configs
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
-    -- tal
   },
 
   ["williamboman/mason.nvim"] = {
@@ -62,8 +64,6 @@ return {
       require "custom.plugins.null-ls"
     end,
   },
-
-  -- [""]
 
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
