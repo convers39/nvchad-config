@@ -15,6 +15,8 @@ M.general = {
     ["<A-k>"] = { "<C-w>k", "Go to the up window" },
     ["<A-l>"] = { "<C-w>l", "Go to the right window" },
     ["<A-q>"] = { "<C-w>q", "Close current window" },
+    ["C-u"] = { "10k", "Go to 10 lines up" },
+    ["C-d"] = { "10j", "Go to 10 lines down" },
     -- split
     ["<A-v>"] = { "<C-w>v", "Split vertically" },
     ["<A-s>"] = { "<C-w>s", "Split horizontally" },
@@ -57,6 +59,14 @@ M.general = {
   i = {
     -- ["jk"] = { "<ESC>", "escape insert mode" , opts = { nowait = true }},
     ["jj"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
+    ["<C-h>"] = { "<ESC>I", "Insert before the first character" },
+    ["<C-l>"] = { "<ESC>A", "Insert after the last character" },
+  },
+  v = {
+    ["<"] = { "<gv", "Indent left" },
+    [">"] = { ">gv", "Indent right" },
+    ["J"] = { ":move '>+1<CR>gv-gv", "Move selected lines up" },
+    ["K"] = { ":move '>-2<CR>gv-gv", "Move selected lines down" },
   },
 }
 
