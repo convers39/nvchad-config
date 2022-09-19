@@ -189,6 +189,9 @@ M.telescope = {
   n = {
     -- theme switcher
     -- ["<leader>nt"] = { "<cmd> Telescope themes <CR>", "nvchad themes" },
+    ["<leader>tp"] = { "<cmd> Telescope project <CR>", "browse project list" },
+    ["<leader>ts"] = { "<cmd> SearchSession <CR>", "browse session list" },
+    ["<leader>td"] = { "<cmd> TodoTelescope <CR>", "browse TODO list" },
   },
 }
 
