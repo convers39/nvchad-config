@@ -87,6 +87,24 @@ return {
     requires = "nvim-lua/plenary.nvim",
   },
   ["puremourning/vimspector"] = {},
+  ["nvim-telescope/telescope-ui-select.nvim"] = {
+    after = "telescope.nvim",
+    -- setup = function()
+    --   require("telescope").setup {
+    --     extensions = {
+    --       ["ui-select"] = {
+    --         require("telescope.themes").get_dropdown {
+    --           -- even more opts
+    --         },
+    --       },
+    --     },
+    --   }
+    --   require("telescope").load_extension "ui-select"
+    -- end,
+    config = function()
+      require("telescope").load_extension "ui-select"
+    end,
+  },
 
   -- Override plugin definition options
   ["tzachar/cmp-tabnine"] = {
@@ -139,12 +157,15 @@ return {
 
   ["nvim-telescope/telescope-project.nvim"] = {
     after = "telescope.nvim",
-    -- module = "telescope",
     config = function()
       require("telescope").load_extension "project"
     end,
-    -- override_options = overrides.telescope,
   },
+
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
+
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }

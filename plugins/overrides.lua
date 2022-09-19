@@ -84,12 +84,25 @@ M.tabnine = function()
 end
 
 M.telescope = {
-  after = "telescope.nvim",
-  -- module = "telescope",
-  config = function()
-    require("telescope").load_extension "projects"
-    require("telescope").load_extension "session-lens"
-  end,
+  extensions = {
+    -- ["ui-select"] = {
+    --   require("telescope.themes").get_dropdown {
+    --     -- even more opts
+    --   },
+    -- },
+    project = {
+      base_dirs = {
+        "~/Projects",
+        -- {'~/dev/src2'},
+        -- {'~/dev/src3', max_depth = 4},
+        -- {path = '~/dev/src4'},
+        -- {path = '~/dev/src5', max_depth = 2},
+      },
+      hidden_files = true, -- default: false
+      theme = "dropdown",
+      order_by = "asc",
+    },
+  },
 }
 
 return M
