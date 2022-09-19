@@ -163,9 +163,20 @@ return {
   },
 
   ["nvim-telescope/telescope.nvim"] = {
-    override_options = overrides.telescope,
+    module = "telescope",
+    override_options = function()
+      return {
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+              -- even more opts
+            },
+          },
+        },
+        extensions_list = { "themes", "terms", "ui-select" },
+      }
+    end,
   },
-
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }
