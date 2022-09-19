@@ -15,12 +15,21 @@ Base on [NvChad](https://github.com/NvChad/NvChad)
 - [x] TimUntersberger/neogit
 - [x] sindrets/diffview.nvim
 - [x] tpope/vim-fugitive
+- [x] akinsho/git-conflict.nvim
 
 ### Edit
 
 - [x] mg979/vim-visual-multi
 - [x] tpope/vim-surround
 - [x] tpope/vim-repeat
+
+### navigation
+
+- [ ] phaazon/hop.nvim
+
+### Writing
+
+- [ ] iamcco/markdown-preview.nvim
 
 ### Autocomplete
 
@@ -30,13 +39,21 @@ Base on [NvChad](https://github.com/NvChad/NvChad)
 
 - [x] folke/trouble.nvim
 - [x] folke/todo-comments.nvim
+- [ ] michaelb/sniprun
+- [ ] danymat/neogen
+- [ ] kevinhwang91/nvim-bqf
+- [ ] rrethy/vim-illuminate
 
 ### Project/Session Management
 
 - [x] rmagatti/auto-session
 - [x] rmagatti/session-lens
-- [x] ahmedkhalf/project.nvim
+- [x] nvim-telescope/telescope-project.nvim
 
 ### Debug
 
 - [ ] puremourning/vimspector
+
+### Tool
+
+- [ ] segeljakt/vim-silicon

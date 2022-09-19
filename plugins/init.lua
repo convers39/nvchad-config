@@ -1,9 +1,9 @@
 local overrides = require "custom.plugins.overrides"
 
 return {
+  ["mg979/vim-visual-multi"] = {},
   ["tpope/vim-repeat"] = {},
   ["tpope/vim-surround"] = {},
-  ["tpope/vim-fugitive"] = {},
   ["folke/todo-comments.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -24,14 +24,13 @@ return {
       }
     end,
   },
-  ["mg979/vim-visual-multi"] = {},
-  ["kdheepak/lazygit.nvim"] = {},
-  -- ["Shatur/neovim-session-manager"] = {
-  --   config = function()
-  --     require("session_manager").setup {
-  --       autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-  --     }
-  --   end,
+
+  -- Session/Project Management
+  -- ["ahmedkhalf/project.nvim"] = {
+  --   after = "telescope.nvim",
+  --   -- config = function()
+  --   --   require("telescope").load_extension "projects"
+  --   -- end,
   -- },
   ["rmagatti/auto-session"] = {
     config = function()
@@ -52,13 +51,33 @@ return {
       }
     end,
   },
-  ["ahmedkhalf/project.nvim"] = {
+  ["rmagatti/session-lens"] = {
     after = "telescope.nvim",
-    -- config = function()
-    --   require("telescope").load_extension "projects"
-    -- end,
+    requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension "session-lens"
+      require("session-lens").setup {
+        path_display = { "shorten" },
+      }
+    end,
   },
-  -- ["nvim-lua/plenary.nvim"] = {},
+  -- ["Shatur/neovim-session-manager"] = {
+  --   config = function()
+  --     require("session_manager").setup {
+  --       autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+  --     }
+  --   end,
+  -- },
+
+  -- git
+  ["kdheepak/lazygit.nvim"] = {},
+  ["tpope/vim-fugitive"] = {},
+  ["akinsho/git-conflict.nvim"] = {
+    tag = "*",
+    config = function()
+      require("git-conflict").setup()
+    end,
+  },
   ["TimUntersberger/neogit"] = {
     after = "plenary.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -66,15 +85,6 @@ return {
   ["sindrets/diffview.nvim"] = {
     after = "plenary.nvim",
     requires = "nvim-lua/plenary.nvim",
-  },
-  ["rmagatti/session-lens"] = {
-    after = "telescope.nvim",
-    requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("session-lens").setup {
-        path_display = { "shorten" },
-      }
-    end,
   },
   ["puremourning/vimspector"] = {},
 
@@ -99,7 +109,6 @@ return {
     override_options = overrides.alpha,
   },
 
-  -- overrde plugin configs
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
   },
@@ -133,7 +142,6 @@ return {
     -- module = "telescope",
     config = function()
       require("telescope").load_extension "project"
-      require("telescope").load_extension "session-lens"
     end,
     -- override_options = overrides.telescope,
   },
