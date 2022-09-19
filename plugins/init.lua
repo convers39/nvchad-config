@@ -52,6 +52,13 @@ return {
       }
     end,
   },
+  ["project_nvim"] = {},
+  ["TimUntersberger/neogit"] = {
+    requires = "nvim-lua/plenary.nvim",
+  },
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+  },
   -- ["rmagatti/session-lens"] = {
   --   requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
   --   config = function()
