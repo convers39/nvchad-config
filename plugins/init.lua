@@ -58,11 +58,13 @@ return {
     --   require("telescope").load_extension "projects"
     -- end,
   },
-  -- ['nvim-lua/plenary.nvim'] = {},
+  -- ["nvim-lua/plenary.nvim"] = {},
   ["TimUntersberger/neogit"] = {
+    after = "plenary.nvim",
     requires = "nvim-lua/plenary.nvim",
   },
   ["sindrets/diffview.nvim"] = {
+    after = "plenary.nvim",
     requires = "nvim-lua/plenary.nvim",
   },
   ["rmagatti/session-lens"] = {
@@ -74,6 +76,8 @@ return {
       }
     end,
   },
+  ["puremourning/vimspector"] = {},
+
   -- Override plugin definition options
   ["tzachar/cmp-tabnine"] = {
     after = "nvim-cmp",
