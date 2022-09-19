@@ -52,21 +52,28 @@ return {
       }
     end,
   },
-  ["project_nvim"] = {},
+  ["ahmedkhalf/project.nvim"] = {
+    after = "telescope.nvim",
+    -- config = function()
+    --   require("telescope").load_extension "projects"
+    -- end,
+  },
+  -- ['nvim-lua/plenary.nvim'] = {},
   ["TimUntersberger/neogit"] = {
     requires = "nvim-lua/plenary.nvim",
   },
   ["sindrets/diffview.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
   },
-  -- ["rmagatti/session-lens"] = {
-  --   requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-  --   config = function()
-  --     require("session-lens").setup {
-  --       path_display = { "shorten" },
-  --     }
-  --   end,
-  -- },
+  ["rmagatti/session-lens"] = {
+    after = "telescope.nvim",
+    requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("session-lens").setup {
+        path_display = { "shorten" },
+      }
+    end,
+  },
   -- Override plugin definition options
   ["tzachar/cmp-tabnine"] = {
     after = "nvim-cmp",
@@ -117,6 +124,15 @@ return {
     end,
   },
 
+  ["nvim-telescope/telescope-project.nvim"] = {
+    after = "telescope.nvim",
+    -- module = "telescope",
+    config = function()
+      require("telescope").load_extension "project"
+      require("telescope").load_extension "session-lens"
+    end,
+    -- override_options = overrides.telescope,
+  },
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }

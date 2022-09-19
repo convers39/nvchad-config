@@ -83,4 +83,13 @@ M.tabnine = function()
   }
 end
 
+M.telescope = {
+  after = "telescope.nvim",
+  -- module = "telescope",
+  config = function()
+    require("telescope").load_extension "projects"
+    require("telescope").load_extension "session-lens"
+  end,
+}
+
 return M
