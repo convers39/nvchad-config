@@ -397,16 +397,14 @@ M.telescope = {
       desc = "Search word with args",
     },
     ["<leader>fd"] = {
-      function()
-        require("telescope.builtin").lsp_document_symbols()
-      end,
+      "<cmd>Telescope aerial<cr>",
       desc = "Find symbols in current file",
     },
     ["<leader>fb"] = {
       function()
         require("telescope.builtin").buffers {
           sort_mru = true,
-          ignore_current_buffer = true,
+          -- ignore_current_buffer = true,
         }
       end,
       desc = "Find buffers in mru order",

@@ -104,6 +104,14 @@ local config = {
         },
       },
     },
+    aerial = {
+      -- Display symbols as <root>.<parent>.<symbol>
+      show_nesting = {
+        ["_"] = false, -- This key will be the default
+        json = true, -- You can set the option for specific filetypes
+        yaml = true,
+      },
+    },
   },
 }
 
@@ -115,3 +123,4 @@ telescope.load_extension "neoclip"
 telescope.load_extension "ui-select"
 telescope.load_extension "themes"
 telescope.load_extension "terms"
+telescope.load_extension "aerial"
