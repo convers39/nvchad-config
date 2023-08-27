@@ -519,7 +519,7 @@ M.gitsigns = {
       opts = { expr = true },
     },
 
-    ["ghp"] = {
+    ["ghk"] = {
       function()
         if vim.wo.diff then
           return "[c"
@@ -531,6 +531,13 @@ M.gitsigns = {
       end,
       "Jump to prev hunk",
       opts = { expr = true },
+    },
+
+    ["ghp"] = {
+      function()
+        require("gitsigns").prev_hunk()
+      end,
+      desc = "Preview changes in a hunk",
     },
 
     -- Actions

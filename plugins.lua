@@ -36,10 +36,21 @@ local plugins = {
   -- navigation
   {
     "stevearc/aerial.nvim",
+    lazy = false,
+    config = function()
+      require("aerial").setup {
+        on_attach = function(bufnr)
+          -- Jump forwards/backwards with '{' and '}'
+          vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+          vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+        end,
+      }
+    end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
+    opts = {},
   },
 
   -- motion & edit
@@ -86,24 +97,36 @@ local plugins = {
   },
 
   -- autocomplete
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "cmp_tabnine" },
+      },
+      mapping = {
+        ["<C-k>"] = require("cmp").mapping.select_prev_item(),
+        ["<C-j>"] = require("cmp").mapping.select_next_item(),
+        ["<C-d>"] = require("cmp").mapping.scroll_docs(-4),
+        ["<C-u>"] = require("cmp").mapping.scroll_docs(4),
+      },
+    },
 
-  -- ["tzachar/cmp-tabnine"] = {
-  --   requires = "hrsh7th/nvim-cmp",
-  --   after = "nvim-cmp",
-  --   run = "./install.sh",
-  --   config = function()
-  --     require("cmp_tabnine.config"):setup {
-  --       max_lines = 1000,
-  --       max_num_results = 20,
-  --       sort = true,
-  --       run_on_every_keystroke = true,
-  --       snippet_placeholder = "..",
-  --       ignored_file_types = {},
-  --       show_prediction_strength = false,
-  --     }
-  --     require("core.utils").add_cmp_source { name = "cmp_tabnine", priority = 1000, max_item_count = 7 }
-  --   end,
-  -- },
+    dependencies = {
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+        config = function()
+          local tabnine = require "cmp_tabnine.config"
+          tabnine:setup {} -- put your options here
+        end,
+      },
+    },
+  },
 
   -- lsp
   {
@@ -161,7 +184,14 @@ local plugins = {
   -- enhancement
   { "rcarriga/nvim-notify" },
 
-  { "folke/todo-comments.nvim", lazy = false, dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
 
   {
     "windwp/nvim-ts-autotag",
@@ -174,15 +204,10 @@ local plugins = {
   {
     "folke/trouble.nvim",
     lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require "custom.configs.trouble"
+      require("trouble").setup(require "custom.configs.trouble")
     end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
   },
 
   -- ["rmagatti/goto-preview"] = {
