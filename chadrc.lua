@@ -10,6 +10,35 @@ M.ui = {
 
   hl_override = highlights.override,
   hl_add = highlights.add,
+
+  -- nvdash (dashboard)
+  telescope = { style = "bordered" }, -- borderless / bordered
+  nvdash = {
+    load_on_startup = true,
+
+    header = {
+      "███████ ███████ ███    ██ ███    ██",
+      "   ███  ██      ████   ██ ████   ██",
+      "  ███   █████   ██ ██  ██ ██ ██  ██",
+      " ███    ██      ██  ██ ██ ██  ██ ██",
+      "███████ ███████ ██   ████ ██   ████",
+      "                                   ",
+      " ███    ██ ██    ██ ██ ███    ███  ",
+      " ████   ██ ██    ██ ██ ████  ████  ",
+      " ██ ██  ██ ██    ██ ██ ██ ████ ██  ",
+      " ██  ██ ██  ██  ██  ██ ██  ██  ██  ",
+      " ██   ████   ████   ██ ██      ██  ",
+    },
+
+    buttons = {
+      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
+      { "  Find File", "Spc f f", "Telescope find_files" },
+      { "󰈭  Find Word", "Spc f w", "<cmd>lua require 'telescope'.extensions.live_grep_args.live_grep_args()<CR>" },
+      { "  Bookmarks", "Spc m a", "<cmd>lua require 'telescope'.extensions.vim_bookmarks.all()<cr>" },
+      { "  Themes", "Spc t t", "Telescope themes" },
+      -- { "  Mappings", "Spc c h", "NvCheatsheet" },
+    },
+  },
 }
 
 M.plugins = "custom.plugins"
