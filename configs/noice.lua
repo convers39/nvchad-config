@@ -1,5 +1,7 @@
 local status_ok, noice = pcall(require, "noice")
-if not status_ok then return end
+if not status_ok then
+  return
+end
 
 noice.setup {
   views = {
@@ -66,8 +68,8 @@ noice.setup {
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
-    hover = { view = "hover" },
-    signature = { view = "hover" },
+    hover = { view = "hover", enabled = false },
+    signature = { view = "hover", enabled = false },
   },
   -- you can enable a preset for easier configuration
   presets = {

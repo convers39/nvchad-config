@@ -36,7 +36,6 @@ local plugins = {
   -- navigation
   {
     "stevearc/aerial.nvim",
-    lazy = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
@@ -75,11 +74,12 @@ local plugins = {
 
   { "f-person/git-blame.nvim", lazy = false },
 
-  ["sindrets/diffview.nvim"] = { lazy = false },
+  { "sindrets/diffview.nvim", lazy = false },
 
-  ["akinsho/git-conflict.nvim"] = {
+  {
+    "akinsho/git-conflict.nvim",
     lazy = false,
-    tag = "*",
+    version = "*",
     config = function()
       require("git-conflict").setup()
     end,
@@ -156,31 +156,33 @@ local plugins = {
       { "nvim-treesitter/nvim-treesitter" },
     },
   },
-  ["simrat39/rust-tools.nvim"] = {},
+  { "simrat39/rust-tools.nvim" },
 
   -- enhancement
-  ["folke/todo-comments.nvim"] = {
+  { "rcarriga/nvim-notify" },
+
+  { "folke/todo-comments.nvim", lazy = false, dependencies = { "nvim-lua/plenary.nvim" } },
+
+  {
+    "windwp/nvim-ts-autotag",
     lazy = false,
-    config = function()
-      require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end,
-  },
-  ["windwp/nvim-ts-autotag"] = {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
   },
 
-  ["folke/trouble.nvim"] = {
+  {
+    "folke/trouble.nvim",
     lazy = false,
-    requires = "kyazdani42/nvim-web-devicons",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("trouble").setup(require "custom.configs.trouble")
+      require "custom.configs.trouble"
     end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
   },
 
   -- ["rmagatti/goto-preview"] = {
@@ -215,18 +217,20 @@ local plugins = {
   },
 
   -- ["danymat/neogen"] = {
-  --   config = function() require("neogen").setup(require "user.plugins.neogen-conf") end,
+  --   c} = {} = {} = {onfig = function() require("neogen").setup(require "user.plugins.neogen-conf") end,
   -- },
 
   -- ui
-  ["tiagovla/scope.nvim"] = {
+  {
+    "tiagovla/scope.nvim",
     lazy = false,
     config = function()
       require("scope").setup()
     end,
   },
 
-  ["folke/noice.nvim"] = {
+  {
+    "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
       require "custom.configs.noice"
