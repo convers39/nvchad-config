@@ -444,7 +444,7 @@ M.nvterm = {
       "Toggle floating term",
     },
 
-    ["<leader>h>"] = {
+    ["<leader>h"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
@@ -468,7 +468,7 @@ M.nvterm = {
       "Toggle floating term",
     },
 
-    ["<leader>h>"] = {
+    ["<leader>h"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
