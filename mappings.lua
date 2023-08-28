@@ -23,8 +23,6 @@ M.disabled = {
     ["<leader>ma"] = "",
     ["gb"] = "",
     ["gbc"] = "",
-    ["<A-K>"] = "",
-    ["<A-J>"] = "",
     ["<leader>rh"] = "",
     ["<leader>ph"] = "",
     ["<leader>gb"] = "",
@@ -61,9 +59,8 @@ M.general = {
     ["\\"] = { "<C-w>s", desc = "Split window horizontally" },
 
     -- multi-cursor
-    -- TODO:
-    ["<A-K>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
-    ["<A-J>"] = { "<cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>" },
+    ["<A-u>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
+    ["<A-d>"] = { "<cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>" },
 
     -- quickfix list
     ["qfj"] = { "<cmd>cnewer<cr>" },
@@ -311,12 +308,12 @@ M.lspconfig = {
       "Goto next",
     },
 
-    ["<leader>dl"] = {
-      function()
-        vim.diagnostic.setloclist()
-      end,
-      "Diagnostic setloclist",
-    },
+    -- ["<leader>dl"] = {
+    --   function()
+    --     vim.diagnostic.setloclist()
+    --   end,
+    --   "Diagnostic setloclist",
+    -- },
 
     ["<leader>wa"] = {
       function()
@@ -396,6 +393,10 @@ M.telescope = {
       "<cmd>lua require 'telescope'.extensions.live_grep_args.live_grep_args()<CR>",
       desc = "Search word with args",
     },
+    ["<leader>fc"] = {
+      "<cmd>Telescope neoclip<cr>",
+      desc = "Search clipboard",
+    },
     ["<leader>fd"] = {
       "<cmd>Telescope aerial<cr>",
       desc = "Find symbols in current file",
@@ -413,6 +414,13 @@ M.telescope = {
       function()
         require("telescope.builtin").grep_string()
       end,
+      desc = "Search current word on cursor",
+    },
+    ["<leader>S"] = {
+      function()
+        require("auto-session.session-lens").search_session()
+      end,
+      noremap = true,
       desc = "Search current word on cursor",
     },
     ["<leader>;"] = {
@@ -533,7 +541,7 @@ M.gitsigns = {
 
     ["ghp"] = {
       function()
-        require("gitsigns").prev_hunk()
+        require("gitsigns").preview_hunk()
       end,
       desc = "Preview changes in a hunk",
     },

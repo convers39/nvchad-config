@@ -179,6 +179,14 @@ local plugins = {
   { "rcarriga/nvim-notify" },
 
   {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = function()
+      require("auto-session").setup(require "custom.configs.auto-session")
+    end,
+  },
+
+  {
     "folke/todo-comments.nvim",
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },

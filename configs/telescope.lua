@@ -18,7 +18,7 @@ local config = {
       "--column",
       "--smart-case",
     },
-    prompt_prefix = "   ",
+    prompt_prefix = " 🔭 ",
     selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -116,11 +116,19 @@ local config = {
 }
 
 telescope.setup(config)
-telescope.load_extension "file_browser"
-telescope.load_extension "live_grep_args"
-telescope.load_extension "vim_bookmarks"
-telescope.load_extension "neoclip"
-telescope.load_extension "ui-select"
-telescope.load_extension "themes"
-telescope.load_extension "terms"
-telescope.load_extension "aerial"
+
+local extensions_list = {
+  "file_browser",
+  "live_grep_args",
+  "vim_bookmarks",
+  "neoclip",
+  "ui-select",
+  "themes",
+  "terms",
+  "aerial",
+  "session-lens",
+}
+
+for _, ext in ipairs(extensions_list) do
+  telescope.load_extension(ext)
+end
