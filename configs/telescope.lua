@@ -99,7 +99,10 @@ local config = {
         ["n"] = {
           ["h"] = fb_actions.goto_parent_dir,
           ["l"] = actions.select_default,
+          ["o"] = actions.select_default,
           ["H"] = fb_actions.toggle_hidden,
+          ["a"] = fb_actions.create,
+          ["~"] = fb_actions.goto_home_dir,
           -- your custom normal mode mappings
         },
       },
