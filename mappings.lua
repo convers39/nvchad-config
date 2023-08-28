@@ -18,6 +18,7 @@ M.disabled = {
     ["<leader>e"] = "",
     ["<leader>fz"] = "",
     ["<leader>fw"] = "",
+    ["<leader>D"] = "",
     ["<leader>fb"] = "",
     ["<leader>fm"] = "",
     ["<leader>ma"] = "",
@@ -76,8 +77,8 @@ M.general = {
       '<cmd>sil! exe "%bd|e#|bd#|normal `"<cr>"',
       desc = "Close other buffers except unsaved",
     },
-    -- Aerial
-    ["<C-b>"] = { "<cmd>AerialToggle<cr>" },
+    -- outline
+    ["<C-b>"] = { "<cmd>Lspsaga outline<cr>" },
     -- trouble
     ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", noremap = true, silent = true },
     ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", noremap = true, silent = true },
@@ -217,6 +218,18 @@ M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
+    ["gt"] = {
+      "<cmd>Lspsaga peek_type_definition<cr>",
+      "LSP declaration",
+    },
+
+    ["gd"] = {
+      -- function()
+      --   vim.lsp.buf.definition()
+      -- end,
+      "<cmd>Lspsaga peek_definition<cr>",
+      "LSP definition",
+    },
     ["gD"] = {
       function()
         vim.lsp.buf.declaration()
@@ -224,24 +237,19 @@ M.lspconfig = {
       "LSP declaration",
     },
 
-    ["gd"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "LSP definition",
-    },
-
     ["K"] = {
-      function()
-        vim.lsp.buf.hover()
-      end,
+      -- function()
+      --   vim.lsp.buf.hover()
+      -- end,
+      "<cmd>Lspsaga hover_doc<cr>",
       "LSP hover",
     },
 
     ["gi"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
+      -- function()
+      --   vim.lsp.buf.implementation()
+      -- end,
+      "<cmd>Lspsaga finder<cr>",
       "LSP implementation",
     },
 
@@ -252,13 +260,6 @@ M.lspconfig = {
       "LSP signature help",
     },
 
-    ["<leader>D"] = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
-      "LSP definition type",
-    },
-
     ["<leader>lr"] = {
       function()
         require("nvchad.renamer").open()
@@ -267,9 +268,10 @@ M.lspconfig = {
     },
 
     ["<leader>la"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
+      -- function()
+      --   vim.lsp.buf.code_action()
+      -- end,
+      "<cmd>Lspsaga code_action<cr>",
       "LSP code action",
     },
 
@@ -288,24 +290,27 @@ M.lspconfig = {
     },
 
     ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
+      -- function()
+      --   vim.lsp.buf.references()
+      -- end,
+      "<cmd>Lspsaga finder<cr>",
       "LSP references",
     },
 
     ["[d"] = {
-      function()
-        vim.diagnostic.goto_prev { float = { border = "rounded" } }
-      end,
-      "Goto prev",
+      -- function()
+      --   vim.diagnostic.goto_prev { float = { border = "rounded" } }
+      -- end,
+      "<cmd>Lspsaga diagnostic_jump_prev<cr>",
+      "Goto prev diagnostic",
     },
 
     ["]d"] = {
-      function()
-        vim.diagnostic.goto_next { float = { border = "rounded" } }
-      end,
-      "Goto next",
+      -- function()
+      --   vim.diagnostic.goto_next { float = { border = "rounded" } }
+      -- end,
+      "<cmd>Lspsaga diagnostic_jump_next<cr>",
+      "Goto next diagnostic",
     },
 
     -- ["<leader>dl"] = {

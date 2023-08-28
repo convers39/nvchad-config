@@ -164,6 +164,7 @@ local plugins = {
   {
     "glepnir/lspsaga.nvim",
     branch = "main",
+    event = "VeryLazy",
     config = function()
       require("lspsaga").setup(require "custom.configs.lspsaga")
     end,
