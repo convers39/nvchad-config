@@ -36,28 +36,28 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
-    ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight", opts = { silent = true } },
-    ["<C-q>"] = { "<C-w>q", desc = "Close window" },
-    -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
+    ["<ESC>"] = { "<cmd>nohl<cr>", "No highlight", opts = { silent = true } },
+    ["<C-q>"] = { "<C-w>q", "Close window" },
+    -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true,  "Floating cmd input" },
     -- resize
     ["<A-l>"] = { "<cmd>vertical resize +2<CR>" },
     ["<A-h>"] = { "<cmd>vertical resize -2<CR>" },
     ["<A-j>"] = { "<cmd>resize -2<CR>" },
     ["<A-k>"] = { "<cmd>resize +2<CR>" },
-    ["<A-=>"] = { "<C-w>=", desc = "Resize equal" },
+    ["<A-=>"] = { "<C-w>=", "Resize equal" },
 
     -- nvim tree
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
 
     -- navigation
-    ["<C-u>"] = { "10k", desc = "Move up 10 lines" },
-    ["<C-d>"] = { "10j", desc = "Move down 10 lines" },
-    ["<]t>"] = { "<cmd>tabnext<cr>", desc = "Move to next tab" },
-    ["<[t>"] = { "<cmd>tabprevious<cr>", desc = "Move to previous tab" },
+    ["<C-u>"] = { "10k", "Move up 10 lines" },
+    ["<C-d>"] = { "10j", "Move down 10 lines" },
+    ["<]t>"] = { "<cmd>tabnext<cr>", "Move to next tab" },
+    ["<[t>"] = { "<cmd>tabprevious<cr>", "Move to previous tab" },
 
     -- split
-    ["|"] = { "<C-w>v", desc = "Split window vertically" },
-    ["\\"] = { "<C-w>s", desc = "Split window horizontally" },
+    ["|"] = { "<C-w>v", "Split window vertically" },
+    ["\\"] = { "<C-w>s", "Split window horizontally" },
 
     -- multi-cursor
     ["<A-u>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
@@ -71,11 +71,11 @@ M.general = {
     -- close buffer
     ["<leader>C"] = {
       '<cmd>sil! exe "wa|%bd|e#|bd#|normal `"<cr>"',
-      desc = "Save and close other buffers",
+      "Save and close other buffers",
     },
     ["<leader>bo"] = {
       '<cmd>sil! exe "%bd|e#|bd#|normal `"<cr>"',
-      desc = "Close other buffers except unsaved",
+      "Close other buffers except unsaved",
     },
     -- outline
     ["<C-b>"] = { "<cmd>Lspsaga outline<cr>" },
@@ -132,21 +132,21 @@ M.general = {
     ["gcq"] = { "<cmd>GitConflictListQf<CR>" },
 
     -- git-blame
-    ["gbl"] = { "<cmd>GitBlameToggle<cr>", desc = "Toggle git blame" },
-    ["gbc"] = { "<cmd>GitBlameCopyFileURL<cr>", desc = "Copy current line remote url to clipboard" },
+    ["gbl"] = { "<cmd>GitBlameToggle<cr>", "Toggle git blame" },
+    ["gbc"] = { "<cmd>GitBlameCopyFileURL<cr>", "Copy current line remote url to clipboard" },
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
-    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>", desc = "Generate documentation template" },
+    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>", "Generate documentation template" },
 
     -- code runner
     ["<leader>r"] = { "<cmd>SnipRun<cr>" },
   },
   v = {
     [";"] = { ":", nowait = true },
-    -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
-    ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
-    ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
+    -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true,  "Floating cmd input" },
+    ["J"] = { ":move '>+1<CR>gv-gv", "Move lines of code up" },
+    ["K"] = { ":move '<-2<CR>gv-gv", "Move lines of code down" },
     -- code runner
     -- ["<leader>r"] = { "<cmd>SnipRun<cr>" },
     -- gitsigns
@@ -154,32 +154,32 @@ M.general = {
       function()
         require("gitsigns").reset_hunk()
       end,
-      desc = "Reset git hunk",
+      "Reset git hunk",
     },
     ["ghs"] = {
       function()
         require("gitsigns").stage_hunk()
       end,
-      desc = "Stage git hunk",
+      "Stage git hunk",
     },
   },
   i = {
-    ["<C-h>"] = { "<ESC>I", desc = "Insert to the first char of current line" },
-    ["<C-l>"] = { "<ESC>A", desc = "Insert to the last char of current line" },
+    ["<C-h>"] = { "<ESC>I", "Insert to the first char of current line" },
+    ["<C-l>"] = { "<ESC>A", "Insert to the last char of current line" },
   },
   t = {
-    ["<A-n>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+    ["<A-n>"] = { "<C-\\><C-n>", "Terminal normal mode" },
     -- resize
     ["<A-l>"] = { "<C-\\><C-n>:vertical resize +5<CR>" },
     ["<A-h>"] = { "<C-\\><C-n>:vertical resize -5<CR>" },
     ["<A-j>"] = { "<C-\\><C-n>:resize -5<CR>" },
     ["<A-k>"] = { "<C-\\><C-n>:resize +5<CR>" },
     -- Improved Terminal Navigation
-    ["<C-h>"] = { "<cmd>wincmd h<cr>", desc = "Terminal left window navigation" },
-    ["<C-j>"] = { "<cmd>wincmd j<cr>", desc = "Terminal down window navigation" },
-    ["<C-k>"] = { "<cmd>wincmd k<cr>", desc = "Terminal up window navigation" },
-    ["<C-l>"] = { "<cmd>wincmd l<cr>", desc = "Terminal right window navigation" },
-    ["<C-q>"] = { "<cmd>wincmd q<cr>", desc = "Terminal close" },
+    ["<C-h>"] = { "<cmd>wincmd h<cr>", "Terminal left window navigation" },
+    ["<C-j>"] = { "<cmd>wincmd j<cr>", "Terminal down window navigation" },
+    ["<C-k>"] = { "<cmd>wincmd k<cr>", "Terminal up window navigation" },
+    ["<C-l>"] = { "<cmd>wincmd l<cr>", "Terminal right window navigation" },
+    ["<C-q>"] = { "<cmd>wincmd q<cr>", "Terminal close" },
   },
 }
 
@@ -376,35 +376,35 @@ M.telescope = {
     -- theme switcher
     ["<leader>tt"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
-    ["<leader>sk"] = { "<cmd>Telescope keymaps<CR>", desc = "Show keymaps" },
-    ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
+    ["<leader>sk"] = { "<cmd>Telescope keymaps<CR>", "Show keymaps" },
+    ["<leader>td"] = { "<cmd> TodoTelescope <CR>", "Show todo items" },
     ["<leader>ma"] = {
       function()
         require("telescope").extensions.vim_bookmarks.all()
       end,
-      desc = "Show all bookmarks",
+      "Show all bookmarks",
     },
     ["<leader>mc"] = {
       function()
         require("telescope").extensions.vim_bookmarks.current_file()
       end,
-      desc = "Show current file bookmarks",
+      "Show current file bookmarks",
     },
     ["<leader>fs"] = {
       "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
-      desc = "Telescope file browser",
+      "Telescope file browser",
     },
     ["<leader>fw"] = {
       "<cmd>lua require 'telescope'.extensions.live_grep_args.live_grep_args()<CR>",
-      desc = "Search word with args",
+      "Search word with args",
     },
     ["<leader>fc"] = {
       "<cmd>Telescope neoclip<cr>",
-      desc = "Search clipboard",
+      "Search clipboard",
     },
     ["<leader>fd"] = {
       "<cmd>Telescope aerial<cr>",
-      desc = "Find symbols in current file",
+      "Find symbols in current file",
     },
     ["<leader>fb"] = {
       function()
@@ -413,26 +413,26 @@ M.telescope = {
           -- ignore_current_buffer = true,
         }
       end,
-      desc = "Find buffers in mru order",
+      "Find buffers in mru order",
     },
     ["<leader>ss"] = {
       function()
         require("telescope.builtin").grep_string()
       end,
-      desc = "Search current word on cursor",
+      "Search current word on cursor",
     },
     ["<leader>S"] = {
       function()
         require("auto-session.session-lens").search_session()
       end,
       noremap = true,
-      desc = "Search current word on cursor",
+      "Search current word on cursor",
     },
     ["<leader>;"] = {
       function()
         require("telescope.builtin").current_buffer_fuzzy_find()
       end,
-      desc = "Fuzzy find lines",
+      "Fuzzy find lines",
     },
   },
 }
@@ -548,7 +548,7 @@ M.gitsigns = {
       function()
         require("gitsigns").preview_hunk()
       end,
-      desc = "Preview changes in a hunk",
+      "Preview changes in a hunk",
     },
 
     -- Actions
@@ -556,27 +556,27 @@ M.gitsigns = {
       function()
         require("gitsigns").reset_hunk()
       end,
-      desc = "Reset git hunk",
+      "Reset git hunk",
     },
     ["ghs"] = {
       function()
         require("gitsigns").stage_hunk()
       end,
-      desc = "Stage git hunk",
+      "Stage git hunk",
     },
     ["ghu"] = {
       function()
         require("gitsigns").undo_stage_hunk()
       end,
-      desc = "Unstage git hunk",
+      "Unstage git hunk",
     },
     ["gbr"] = {
       function()
         require("gitsigns").reset_buffer()
       end,
-      desc = "Reset git buffer",
+      "Reset git buffer",
     },
-    -- ["gd"] = { function() require("gitsigns").diffthis() end, desc = "View git diff" },
+    -- ["gd"] = { function() require("gitsigns").diffthis() end,  "View git diff" },
   },
 }
 

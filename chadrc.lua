@@ -13,6 +13,21 @@ M.ui = {
 
   -- nvdash (dashboard)
   telescope = { style = "bordered" }, -- borderless / bordered
+  statusline = {
+    theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "default",
+    overriden_modules = nil,
+  },
+
+  -- lazyload it when there are 1+ buffers
+  tabufline = {
+    show_numbers = false,
+    enabled = true,
+    lazyload = false,
+    overriden_modules = nil,
+  },
   nvdash = {
     load_on_startup = true,
 
