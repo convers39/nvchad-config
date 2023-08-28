@@ -4,7 +4,7 @@ local actions = require "telescope.actions"
 local lga_actions = require "telescope-live-grep-args.actions"
 local fb_actions = telescope.extensions.file_browser.actions
 
-require("neoclip").setup()
+-- require("neoclip").setup()
 
 local config = {
   defaults = {
@@ -125,7 +125,6 @@ local extensions_list = {
   "ui-select",
   "themes",
   "terms",
-  "aerial",
   "session-lens",
 }
 

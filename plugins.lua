@@ -33,20 +33,6 @@ local plugins = {
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   --
-  -- navigation
-  {
-    "stevearc/aerial.nvim",
-    lazy = false,
-    config = function()
-      require("aerial").setup(require "custom.configs.aerial")
-    end,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {},
-  },
-
   -- motion & edit
   {
     "mg979/vim-visual-multi",
@@ -93,23 +79,7 @@ local plugins = {
   -- autocomplete
   {
     "hrsh7th/nvim-cmp",
-    opts = {
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        { name = "cmp_tabnine" },
-      },
-      mapping = {
-        ["<C-k>"] = require("cmp").mapping.select_prev_item(),
-        ["<C-j>"] = require("cmp").mapping.select_next_item(),
-        ["<C-d>"] = require("cmp").mapping.scroll_docs(-4),
-        ["<C-u>"] = require("cmp").mapping.scroll_docs(4),
-      },
-    },
-
+    opts = require "custom.configs.nvim-cmp",
     dependencies = {
       {
         "tzachar/cmp-tabnine",
@@ -225,11 +195,13 @@ local plugins = {
 
   {
     "AckslD/nvim-neoclip.lua",
-    requires = {
-      { "kkharji/sqlite.lua", module = "sqlite" },
+    config = function()
+      require("neoclip").setup(require "custom.configs.neoclip")
+    end,
+    dependencies = {
+      { "kkharji/sqlite.lua" },
       { "nvim-telescope/telescope.nvim" },
     },
-    after = "telescope.nvim",
   },
 
   { "nacro90/numb.nvim" },
