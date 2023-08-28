@@ -15,9 +15,8 @@ local sources = {
   -- Set a linter
   b.diagnostics.mypy,
   b.diagnostics.hadolint,
-  -- diagnostics.cspell,
   b.diagnostics.eslint_d,
-  b.code_actions.refactoring,
+  -- b.code_actions.refactoring,
   b.code_actions.eslint_d,
   b.code_actions.gitsigns,
 }
