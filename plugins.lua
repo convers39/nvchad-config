@@ -128,10 +128,6 @@ local plugins = {
     opts = overrides.treesitter,
   },
   {
-    "jose-elias-alvarez/typescript.nvim",
-    after = "mason-lspconfig.nvim",
-  },
-  {
     "glepnir/lspsaga.nvim",
     branch = "main",
     event = "VeryLazy",
@@ -144,7 +140,28 @@ local plugins = {
       { "nvim-treesitter/nvim-treesitter" },
     },
   },
-  { "simrat39/rust-tools.nvim" },
+  {
+    "jose-elias-alvarez/typescript.nvim",
+    after = "mason-lspconfig.nvim",
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function()
+      return require "custom.configs.rust-tools"
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
 
   -- enhancement
   { "rcarriga/nvim-notify" },
