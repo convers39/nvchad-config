@@ -107,19 +107,16 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
-  {
-    "williamboman/mason.nvim",
-    opts = overrides.mason,
-  },
+  { "williamboman/mason.nvim" },
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
       "williamboman/mason.nvim",
     },
     config = function()
-      require("mason-lspconfig").setup(require "custom.configs")
+      require("mason-lspconfig").setup(require "custom.configs.mason-lsp")
     end,
   },
 
@@ -177,24 +174,19 @@ local plugins = {
   },
 
   -- dap
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap" },
+    lazy = false,
     config = function()
-      require "custom.configs.dap"
+      require("nvim-dap-virtual-text").setup()
     end,
   },
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("core.utils").load_mappings "dap"
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
-    config = function()
-      require("nvim-dap-virtual-text").setup()
+      require "custom.configs.dap"
     end,
   },
   {
@@ -204,11 +196,19 @@ local plugins = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function(_, opts)
+    config = function()
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
     end,
+  },
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
   },
 
   -- enhancement

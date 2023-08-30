@@ -10,15 +10,17 @@ return {
     "json-lsp",
     "emmet-ls",
     "typescript-language-server",
-    "python-language-server",
+    -- "python-language-server",
+    "pyright",
     "rust-analyzer",
     "graphql",
     "terraform-ls",
 
-    -- linter
+    -- linter & diagnostics
     "hadolint",
     "eslint_d",
     "mypy",
+    "ruff",
 
     -- formatter
     "prettierd",
@@ -26,9 +28,11 @@ return {
     "black",
     "yamlfmt",
 
-    -- diagnostics
-    -- "cspell",
     -- dap
+    "debugpy",
+    "chrome-debug-adapter",
+    "js-debug-adapter",
+    "node-debug2-adapter",
   },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
