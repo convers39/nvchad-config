@@ -14,6 +14,7 @@ local sources = {
   -- formatting.yamlfmt,
   -- Set a linter
   b.diagnostics.mypy,
+  b.diagnostics.ruff,
   b.diagnostics.hadolint,
   b.diagnostics.eslint_d,
   -- b.code_actions.refactoring,

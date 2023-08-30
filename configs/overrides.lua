@@ -43,15 +43,17 @@ M.mason = {
     "json-lsp",
     "emmet-ls",
     "typescript-language-server",
-    "python-language-server",
+    -- "python-language-server",
+    "pyright",
     "rust-analyzer",
     "graphql",
     "terraform-ls",
 
-    -- linter
+    -- linter & diagnostics
     "hadolint",
     "eslint_d",
     "mypy",
+    "ruff",
 
     -- formatter
     "prettierd",
@@ -59,9 +61,8 @@ M.mason = {
     "black",
     "yamlfmt",
 
-    -- diagnostics
-
     -- dap
+    "debugpy",
   },
   automatic_installation = true,
   handlers = nil,
