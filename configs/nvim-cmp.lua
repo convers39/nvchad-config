@@ -3,10 +3,11 @@ return {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "cmp_tabnine" },
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
-    { name = "cmp_tabnine" },
+    { name = "crates" },
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
