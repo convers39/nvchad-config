@@ -63,6 +63,9 @@ M.mason = {
 
     -- dap
     "debugpy",
+    "chrome-debug-adapter",
+    "js-debug-adapter",
+    "node-debug2-adapter",
   },
   automatic_installation = true,
   handlers = nil,
