@@ -137,10 +137,10 @@ M.general = {
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
-    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>", "Generate documentation template" },
+    ["<leader>D"] = { "<cmd>DogeGenerate<cr>", "Generate documentation template" },
 
     -- code runner
-    ["<leader>r"] = { "<cmd>SnipRun<cr>" },
+    -- ["<leader>r"] = { "<cmd>SnipRun<cr>" },
   },
   v = {
     [";"] = { ":", nowait = true },
@@ -583,7 +583,19 @@ M.gitsigns = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <cr>" },
+    ["<leader>db"] = {
+      function()
+        require("dapui").toggle()
+      end,
+      "Toggle debugger ui",
+    },
+    ["<leader>de"] = {
+      function()
+        require("dapui").eval()
+      end,
+      "Evaluate epression from cursor",
+    },
+    ["<leader>dd"] = { "<cmd> DapToggleBreakpoint <cr>" },
     ["<leader>di"] = { "<cmd> DapStepIn <cr>" },
     ["<leader>dc"] = { "<cmd> DapContinue <cr>" },
     ["<leader>do"] = { "<cmd> DapStepOut <cr>" },
@@ -591,6 +603,14 @@ M.dap = {
     ["<leader>dt"] = { "<cmd> DapTerminate <cr>" },
     ["<leader>dr"] = { "<cmd> DapToggleRepl <cr>" },
     ["<leader>dl"] = { "<cmd> DapShowLog <cr>" },
+  },
+  v = {
+    ["<leader>de"] = {
+      function()
+        require("dapui").eval()
+      end,
+      "Evaluate epression from selected",
+    },
   },
 }
 
