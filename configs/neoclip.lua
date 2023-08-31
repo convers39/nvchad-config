@@ -1,4 +1,4 @@
-return {
+local opts = {
   history = 1000,
   enable_persistent_history = false,
   length_limit = 1048576,
@@ -61,3 +61,4 @@ return {
     },
   },
 }
+require("neoclip").setup(opts)

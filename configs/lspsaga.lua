@@ -1,4 +1,4 @@
-local config = {
+local opts = {
   ui = {
     winblend = 10,
     border = "rounded",
@@ -93,4 +93,4 @@ local config = {
   },
 }
 
-return config
+require("lspsaga").setup(opts)

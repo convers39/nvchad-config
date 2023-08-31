@@ -1,5 +1,3 @@
-local overrides = require "custom.configs.overrides"
-
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -11,7 +9,7 @@ local plugins = {
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    opts = require "custom.configs.nvim-tree",
   },
 
   -- Install a plugin
@@ -116,20 +114,20 @@ local plugins = {
       "williamboman/mason.nvim",
     },
     config = function()
-      require("mason-lspconfig").setup(require "custom.configs.mason-lsp")
+      require "custom.configs.mason-lsp"
     end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    opts = require "custom.configs.treesitter",
   },
   {
     "glepnir/lspsaga.nvim",
     branch = "main",
     event = "VeryLazy",
     config = function()
-      require("lspsaga").setup(require "custom.configs.lspsaga")
+      require "custom.configs.lspsaga"
     end,
     requires = {
       { "nvim-tree/nvim-web-devicons" },
@@ -145,11 +143,8 @@ local plugins = {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
+    config = function()
+      require "custom.configs.rust-tools"
     end,
   },
   {
@@ -204,7 +199,7 @@ local plugins = {
   },
   {
     "mxsdev/nvim-dap-vscode-js",
-    ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    ft = { "javascript", "typescript", "avascriptreact", "typescriptreact" },
     dependencies = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
@@ -225,7 +220,7 @@ local plugins = {
     "rmagatti/auto-session",
     lazy = false,
     config = function()
-      require("auto-session").setup(require "custom.configs.auto-session")
+      require "custom.configs.auto-session"
     end,
   },
 
@@ -251,7 +246,7 @@ local plugins = {
     lazy = false,
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup(require "custom.configs.trouble")
+      require "custom.configs.trouble"
     end,
   },
 
@@ -263,12 +258,10 @@ local plugins = {
 
   { "MattesGroeger/vim-bookmarks", lazy = false },
 
-  { "kkharji/sqlite.lua" },
-
   {
     "AckslD/nvim-neoclip.lua",
     config = function()
-      require("neoclip").setup(require "custom.configs.neoclip")
+      require "custom.configs.neoclip"
     end,
     dependencies = {
       { "kkharji/sqlite.lua" },
@@ -283,7 +276,7 @@ local plugins = {
     "kkoomen/vim-doge",
     run = ":call doge#install()",
     config = function()
-      require("custom.configs.vim-doge").setup()
+      require "custom.configs.vim-doge"
     end,
     cmd = { "DogeGenerate", "DogeCreateDocStandard" },
   },

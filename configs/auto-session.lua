@@ -1,4 +1,4 @@
-return {
+local opts = {
   log_level = vim.log.levels.ERROR,
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
   auto_session_use_git_branch = true,
@@ -25,3 +25,4 @@ return {
     previewer = false,
   },
 }
+require("auto-session").setup(opts)

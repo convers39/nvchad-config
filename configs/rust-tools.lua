@@ -24,4 +24,4 @@ local options = {
   },
 }
 
-return options
+require("rust-tools").setup(options)
