@@ -625,4 +625,14 @@ M.dap_python = {
   },
 }
 
+M.tmux = {
+  plugin = true,
+  n = {
+    ["<C-l>"] = { "<cmd>lua require('tmux').move_left()<cr>" },
+    ["<C-j>"] = { "<cmd>lua require('tmux').move_bottom()<cr>" },
+    ["<C-k>"] = { "<cmd>lua require('tmux').move_top()<cr>" },
+    ["<C-h>"] = { "<cmd>lua require('tmux').move_right()<cr>" },
+  },
+}
+
 return M

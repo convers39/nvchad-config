@@ -212,6 +212,13 @@ local plugins = {
   },
 
   -- enhancement
+  {
+    "aserowy/tmux.nvim",
+    lazy = false,
+    config = function()
+      return require("tmux").setup()
+    end,
+  },
   { "rcarriga/nvim-notify" },
 
   {
