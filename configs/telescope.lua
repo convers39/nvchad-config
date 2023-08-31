@@ -118,6 +118,7 @@ local config = {
   },
 }
 
+dofile(vim.g.base46_cache .. "telescope")
 telescope.setup(config)
 
 local extensions_list = {
