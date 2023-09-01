@@ -52,8 +52,8 @@ M.general = {
     -- navigation
     ["<C-u>"] = { "10k", "Move up 10 lines" },
     ["<C-d>"] = { "10j", "Move down 10 lines" },
-    ["<]t>"] = { "<cmd>tabnext<cr>", "Move to next tab" },
-    ["<[t>"] = { "<cmd>tabprevious<cr>", "Move to previous tab" },
+    ["]t"] = { "<cmd>tabnext<cr>", "Move to next tab" },
+    ["[t"] = { "<cmd>tabprevious<cr>", "Move to previous tab" },
 
     -- split
     ["|"] = { "<C-w>v", "Split window vertically" },
