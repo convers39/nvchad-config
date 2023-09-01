@@ -1,7 +1,7 @@
 local opts = {
   log_level = vim.log.levels.ERROR,
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-  auto_session_use_git_branch = true,
+  -- auto_session_use_git_branch = true,
 
   auto_session_enable_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
   bypass_session_save_file_types = nil, -- table: Bypass auto save when only buffer open is one of these file types

@@ -1,14 +1,33 @@
 return {
-  git = {
-    enable = true,
+  ensure_installed = {
+    "bash",
+    "css",
+    "dockerfile",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "scss",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+    "rust",
+    "hcl",
+    "graphql",
+    -- "help",
+    "terraform",
+    "sql",
+    "jsdoc",
   },
-
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
+  indent = {
+    enable = true,
+    -- disable = {
+    --   "python"
+    -- },
   },
 }
