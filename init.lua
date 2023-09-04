@@ -12,6 +12,13 @@ autocmd({ "BufEnter" }, {
   end,
 })
 
+-- highlight yank contents
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { highlight = "IncSearch", timeout = 200 }
+  end,
+})
+
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {
 --   pattern = "*",
