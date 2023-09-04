@@ -285,6 +285,21 @@ local plugins = {
   --   c} = {} = {} = {onfig = function() require("neogen").setup(require "user.plugins.neogen-conf") end,
   -- },
 
+  -- notetaking
+  {
+    "epwalsh/obsidian.nvim",
+    lazy = true,
+    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Library/CloudStorage/Box-Box/Notes/**.md" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require "custom.configs.obsidian"
+    end,
+    -- opts = require "custom.configs.obsidian",
+  },
+
   -- ui
   {
     "tiagovla/scope.nvim",

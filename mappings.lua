@@ -652,4 +652,22 @@ M.tmux = {
   },
 }
 
+M.obsidian = {
+  plugin = true,
+  n = {
+    -- ["gf"] = {
+    --   "<cmd>ObsidianFollowLink<cr>",
+    --   "Move to file following link under cursor",
+    -- },
+    ["<leader>ll"] = {
+      "<cmd>ObsidianBacklinks<cr>",
+      "Show backlink location list",
+    },
+    ["<leader>so"] = {
+      "<cmd>ObsidianSearch<cr>",
+      "Search obsidian notes",
+    },
+  },
+}
+
 return M
