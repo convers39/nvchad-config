@@ -218,23 +218,55 @@ M.lspconfig = {
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
-    ["gt"] = {
+    ["gpt"] = {
       "<cmd>Lspsaga peek_type_definition<cr>",
-      "LSP declaration",
+      "Lspsaga peek type declaration",
+    },
+
+    ["gt"] = {
+      "<cmd>Lspsaga goto_type_definition<cr>",
+      "Lspsaga goto type declaration",
     },
 
     ["gd"] = {
       -- function()
       --   vim.lsp.buf.definition()
       -- end,
-      "<cmd>Lspsaga peek_definition<cr>",
-      "LSP definition",
+      "<cmd>Lspsaga goto_definition<cr>",
+      "Lspsaga goto definition",
     },
+
+    ["gpd"] = {
+      "<cmd>Lspsaga peek_definition<cr>",
+      "Lspsaga peek definition",
+    },
+
     ["gD"] = {
       function()
         vim.lsp.buf.declaration()
       end,
       "LSP declaration",
+    },
+
+    ["gr"] = {
+      function()
+        -- vim.lsp.buf.references()
+        require("telescope.builtin").lsp_references { noremap = true, silent = true }
+      end,
+      "LSP references",
+    },
+
+    ["gi"] = {
+      function()
+        -- vim.lsp.buf.implementation()
+        require("telescope.builtin").lsp_implementations { noremap = true, silent = true }
+      end,
+      "LSP implementation",
+    },
+
+    ["gpf"] = {
+      "<cmd>Lspsaga finder<cr>",
+      "Lspsaga finder with references and implementations",
     },
 
     ["K"] = {
@@ -243,14 +275,6 @@ M.lspconfig = {
       -- end,
       "<cmd>Lspsaga hover_doc<cr>",
       "LSP hover",
-    },
-
-    ["gi"] = {
-      -- function()
-      --   vim.lsp.buf.implementation()
-      -- end,
-      "<cmd>Lspsaga finder<cr>",
-      "LSP implementation",
     },
 
     ["<leader>ls"] = {
@@ -278,23 +302,16 @@ M.lspconfig = {
     ["<leader>ld"] = {
       function()
         vim.diagnostic.open_float { border = "rounded" }
+        -- require("telescope.builtin").diagnostics { noremap = true, silent = true }
       end,
       "Show lsp diagnostic",
     },
 
     ["<leader>lf"] = {
       function()
-        vim.lsp.buf.format()
+        vim.lsp.buf.format { timeout_ms = 500 }
       end,
       "LSP code format",
-    },
-
-    ["gr"] = {
-      -- function()
-      --   vim.lsp.buf.references()
-      -- end,
-      "<cmd>Lspsaga finder<cr>",
-      "LSP references",
     },
 
     ["[d"] = {
