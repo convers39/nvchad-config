@@ -36,3 +36,5 @@ set.foldlevel = 99
 set.fillchars = { eob = "-", fold = " " }
 -- set.tm = 1000
 set.linebreak = true
+
+set.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,terminal"
