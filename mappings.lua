@@ -36,7 +36,7 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
-    ["<ESC>"] = { "<cmd>nohl<cr>", "No highlight", opts = { silent = true } },
+    ["<ESC>"] = { "<cmd>nohl<cr>", "No highlight", opts = {} },
     ["<C-q>"] = { "<C-w>q", "Close window" },
     -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true,  "Floating cmd input" },
     -- resize
