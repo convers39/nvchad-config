@@ -12,6 +12,11 @@ local plugins = {
     opts = require "custom.configs.nvim-tree",
   },
 
+  {
+    "NvChad/nvterm",
+    opts = require "custom.configs.nvterm",
+  },
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
