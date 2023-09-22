@@ -22,6 +22,7 @@ M.disabled = {
     ["<leader>fb"] = "",
     ["<leader>fm"] = "",
     ["<leader>ma"] = "",
+    ["<leader>th"] = "",
     ["gb"] = "",
     ["gbc"] = "",
     ["<leader>rh"] = "",
@@ -466,14 +467,14 @@ M.nvterm = {
       "Toggle floating term",
     },
 
-    ["<leader>h"] = {
+    ["<leader>th"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<leader>v"] = {
+    ["<leader>tv"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
@@ -490,14 +491,14 @@ M.nvterm = {
       "Toggle floating term",
     },
 
-    ["<leader>h"] = {
+    ["<leader>th"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle horizontal term",
     },
 
-    ["<leader>v"] = {
+    ["<leader>tv"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
