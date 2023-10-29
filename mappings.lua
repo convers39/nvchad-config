@@ -65,6 +65,29 @@ M.general = {
     ["<A-u>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
     ["<A-d>"] = { "<cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>" },
 
+    -- substitute
+    ["r"] = {
+      function()
+        require("substitute").operator()
+      end,
+      "Substitute with operator",
+      opts = { noremap = true },
+    },
+    ["rr"] = {
+      function()
+        require("substitute").line()
+      end,
+      "Substitute current line",
+      opts = { noremap = true },
+    },
+    ["R"] = {
+      function()
+        require("substitute").eol()
+      end,
+      "Substitute end of line",
+      opts = { noremap = true },
+    },
+
     -- quickfix list
     ["qfj"] = { "<cmd>cnewer<cr>" },
     ["qfk"] = { "<cmd>colder<cr>" },
