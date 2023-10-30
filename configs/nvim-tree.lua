@@ -1,6 +1,11 @@
 return {
+  filters = {
+    dotfiles = false,
+    custom = { ".DS_Store", ".cache", "^.git$" },
+  },
   git = {
     enable = true,
+    ignore = false,
   },
 
   renderer = {
