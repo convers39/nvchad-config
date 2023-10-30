@@ -1,4 +1,4 @@
----@type MappingsTable
+-- -@type MappingsTable
 local M = {}
 
 M.disabled = {
@@ -87,6 +87,20 @@ M.general = {
       "Substitute end of line",
       opts = { noremap = true },
     },
+    -- ["rs"] = {
+    --   function()
+    --     require("substitute.range").operator()
+    --   end,
+    --   "Substitute range with operator",
+    --   opts = { noremap = true },
+    -- },
+    -- ["rss"] = {
+    --   function()
+    --     require("substitute.range").word()
+    --   end,
+    --   "Substitute range with current word",
+    --   opts = { noremap = true },
+    -- },
 
     -- quickfix list
     ["qfj"] = { "<cmd>cnewer<cr>" },
@@ -187,6 +201,21 @@ M.general = {
       end,
       "Stage git hunk",
     },
+    -- substitute
+    ["r"] = {
+      function()
+        require("substitute").visual()
+      end,
+      "Substitute selected text",
+      opts = { noremap = true },
+    },
+    -- ["rs"] = {
+    --   function()
+    --     require("substitute.range").visual()
+    --   end,
+    --   "Substitute range with selected text ",
+    --   opts = { noremap = true },
+    -- },
   },
   i = {
     ["<C-h>"] = { "<ESC>I", "Insert to the first char of current line" },
