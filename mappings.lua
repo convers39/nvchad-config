@@ -35,7 +35,7 @@ M.disabled = {
 
 M.general = {
   n = {
-    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>;"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
     -- override with <cmd> to prevent cmd popup from noice
     ["<Esc>"] = { "<cmd>noh<cr>", "No highlight" },
@@ -181,7 +181,7 @@ M.general = {
     -- ["<leader>r"] = { "<cmd>SnipRun<cr>" },
   },
   v = {
-    [";"] = { ":", nowait = true },
+    -- [";"] = { ":", nowait = true },
     -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true,  "Floating cmd input" },
     ["J"] = { ":move '>+1<CR>gv-gv", "Move lines of code up" },
     ["K"] = { ":move '<-2<CR>gv-gv", "Move lines of code down" },
@@ -498,7 +498,7 @@ M.telescope = {
       noremap = true,
       "Search current word on cursor",
     },
-    ["<leader>;"] = {
+    ["<leader>'"] = {
       function()
         require("telescope.builtin").current_buffer_fuzzy_find()
       end,
