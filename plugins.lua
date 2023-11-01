@@ -136,7 +136,18 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     opts = require "custom.configs.treesitter",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    lazy = false,
+    config = function()
+      require "custom.configs.treesitter-textobjects"
+    end,
   },
   {
     "glepnir/lspsaga.nvim",

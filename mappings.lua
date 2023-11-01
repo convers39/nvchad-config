@@ -35,12 +35,11 @@ M.disabled = {
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
     -- override with <cmd> to prevent cmd popup from noice
     ["<Esc>"] = { "<cmd>noh<cr>", "No highlight" },
     ["<C-q>"] = { "<C-w>q", "Close window" },
-    -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true,  "Floating cmd input" },
     -- resize
     ["<A-l>"] = { "<cmd>vertical resize +2<CR>" },
     ["<A-h>"] = { "<cmd>vertical resize -2<CR>" },
