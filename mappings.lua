@@ -119,31 +119,29 @@ M.general = {
     ["<C-b>"] = { "<cmd>Lspsaga outline<cr>" },
     -- trouble
     ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", noremap = true, silent = true },
-    ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", noremap = true, silent = true },
-    ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", noremap = true, silent = true },
-    ["<leader>xr"] = { "<cmd>TroubleToggle lsp_references<cr>", noremap = true, silent = true },
-    ["gxj"] = {
+    ["<leader>qq"] = { "<cmd>TroubleToggle quickfix<cr>", noremap = true, silent = true },
+    ["]x"] = {
       function()
         require("trouble").next { skip_groups = true, jump = true }
       end,
       noremap = true,
       silent = true,
     },
-    ["gxk"] = {
+    ["[x"] = {
       function()
         require("trouble").previous { skip_groups = true, jump = true }
       end,
       noremap = true,
       silent = true,
     },
-    ["gxf"] = {
+    ["[X"] = {
       function()
         require("trouble").first { skip_groups = true, jump = true }
       end,
       noremap = true,
       silent = true,
     },
-    ["gxl"] = {
+    ["]X"] = {
       function()
         require("trouble").last { skip_groups = true, jump = true }
       end,
@@ -429,16 +427,11 @@ M.telescope = {
   plugin = true,
 
   n = {
-    -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
-
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gS"] = { "<cmd> Telescope git_stash <CR>", "Git stash" },
+    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
 
     -- pick a hidden term
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
@@ -447,7 +440,11 @@ M.telescope = {
     ["<leader>tt"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     ["<leader>sk"] = { "<cmd>Telescope keymaps<CR>", "Show keymaps" },
-    ["<leader>td"] = { "<cmd> TodoTelescope <CR>", "Show todo items" },
+    ["<leader>td"] = { "<cmd>TodoTelescope<CR>", "Show todo items" },
+
+    -- registers & marks
+    ["<leader>sr"] = { "<cmd>Telescope registers<CR>", "Show registers" },
+    ["<leader>sm"] = { "<cmd>Telescope marks<CR>", "Show marks" },
     ["<leader>ma"] = {
       function()
         require("telescope").extensions.vim_bookmarks.all()
@@ -460,6 +457,17 @@ M.telescope = {
       end,
       "Show current file bookmarks",
     },
+    ["<leader>fc"] = {
+      "<cmd>Telescope neoclip<cr>",
+      "Search clipboard",
+    },
+
+    -- find
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+
     ["<leader>fs"] = {
       "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
       "Telescope file browser",
@@ -467,14 +475,6 @@ M.telescope = {
     ["<leader>fw"] = {
       "<cmd>lua require 'telescope'.extensions.live_grep_args.live_grep_args()<CR>",
       "Search word with args",
-    },
-    ["<leader>fc"] = {
-      "<cmd>Telescope neoclip<cr>",
-      "Search clipboard",
-    },
-    ["<leader>fd"] = {
-      "<cmd>Telescope aerial<cr>",
-      "Find symbols in current file",
     },
     ["<leader>fb"] = {
       function()
@@ -496,7 +496,7 @@ M.telescope = {
         require("auto-session.session-lens").search_session()
       end,
       noremap = true,
-      "Search current word on cursor",
+      "Search saved sessions",
     },
     ["<leader>'"] = {
       function()
