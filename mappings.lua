@@ -155,7 +155,8 @@ M.general = {
     -- git diff vieww
     ["gdo"] = { "<cmd>DiffviewOpen<CR>" },
     ["gdc"] = { "<cmd>DiffviewClose<CR>" },
-    ["gdf"] = { "<cmd>DiffviewFileHistory<CR>" },
+    ["gdb"] = { "<cmd>DiffviewFileHistory<CR>", "Diffview on current branch" },
+    ["gdf"] = { "<cmd>DiffviewFileHistory %<CR>", "Diffview on current file" },
 
     -- git conflict
     ["gco"] = { "<cmd>GitConflictChooseOurs<CR>" },
