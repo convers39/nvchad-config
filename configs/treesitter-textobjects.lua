@@ -53,8 +53,10 @@ require("nvim-treesitter.configs").setup {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["aa"] = "@assignment.outer",
-        ["ia"] = "@assignment.inner",
+        ["ia"] = "@assignment.rhs",
         ["ac"] = "@class.outer",
+        ["al"] = "@loop.outer",
+        ["il"] = "@loop.inner",
         -- You can optionally set descriptions to the mappings (used in the desc parameter of
         -- nvim_buf_set_keymap) which plugins like which-key display
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
@@ -72,7 +74,8 @@ require("nvim-treesitter.configs").setup {
         ["@parameter.outer"] = "v",  -- charwise
         ["@assignment.outer"] = "V", -- charwise
         ["@function.outer"] = "V",   -- linewise
-        ["@class.outer"] = "<c-v>",  -- blockwise
+        ["@class.outer"] = "V",      -- blockwise
+        ["@loop.outer"] = "V",       -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
       -- extended to include preceding or succeeding whitespace. Succeeding
@@ -83,7 +86,7 @@ require("nvim-treesitter.configs").setup {
       -- * query_string: eg '@function.inner'
       -- * selection_mode: eg 'v'
       -- and should return true of false
-      include_surrounding_whitespace = true,
+      include_surrounding_whitespace = false,
     },
   },
 }
