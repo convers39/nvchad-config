@@ -106,13 +106,23 @@ local plugins = {
     },
   },
 
+  -- formatter
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
+
   -- lsp
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     dependencies = {
-      -- format & linting
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         config = function()
           require "custom.configs.null-ls"
         end,

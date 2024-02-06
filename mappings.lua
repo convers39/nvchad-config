@@ -361,7 +361,8 @@ M.lspconfig = {
 
     ["<leader>lf"] = {
       function()
-        vim.lsp.buf.format { timeout_ms = 500 }
+        -- vim.lsp.buf.format { timeout_ms = 500 }
+        require('conform').format()
       end,
       "LSP code format",
     },
