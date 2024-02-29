@@ -5,12 +5,12 @@ local b = null_ls.builtins
 
 local sources = {
   -- Lua
-  b.formatting.stylua,
+  -- b.formatting.stylua,
   -- Set a formatter
-  b.formatting.prettierd,
-  b.formatting.rustfmt,
-  b.formatting.stylua,
-  b.formatting.black,
+  -- b.formatting.prettierd,
+  -- b.formatting.rustfmt,
+  -- b.formatting.stylua,
+  -- b.formatting.black,
   -- formatting.yamlfmt,
   -- Set a linter
   b.diagnostics.mypy,
