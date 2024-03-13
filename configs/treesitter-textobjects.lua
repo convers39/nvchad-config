@@ -35,12 +35,12 @@ require("nvim-treesitter.configs").setup {
       -- Below will go to either the start or the end, whichever is closer.
       -- Use if you want more granular movements
       -- Make it even more gradual by adding multiple queries and regex.
-      goto_next = {
-        ["]d"] = "@conditional.outer",
-      },
-      goto_previous = {
-        ["[d"] = "@conditional.outer",
-      },
+      -- goto_next = {
+      --   ["]d"] = "@conditional.outer",
+      -- },
+      -- goto_previous = {
+      --   ["[d"] = "@conditional.outer",
+      -- },
     },
     select = {
       enable = true,
@@ -71,11 +71,11 @@ require("nvim-treesitter.configs").setup {
       -- and should return the mode ('v', 'V', or '<c-v>') or a table
       -- mapping query_strings to modes.
       selection_modes = {
-        ["@parameter.outer"] = "v",  -- charwise
+        ["@parameter.outer"] = "v", -- charwise
         ["@assignment.outer"] = "V", -- charwise
-        ["@function.outer"] = "V",   -- linewise
-        ["@class.outer"] = "V",      -- blockwise
-        ["@loop.outer"] = "V",       -- blockwise
+        ["@function.outer"] = "V", -- linewise
+        ["@class.outer"] = "V", -- blockwise
+        ["@loop.outer"] = "V", -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
       -- extended to include preceding or succeeding whitespace. Succeeding
