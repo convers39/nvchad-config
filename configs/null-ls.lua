@@ -14,12 +14,13 @@ local sources = {
   -- formatting.yamlfmt,
   -- Set a linter
   b.diagnostics.mypy,
-  b.diagnostics.ruff,
   b.diagnostics.hadolint,
-  b.diagnostics.eslint_d,
+  require "none-ls.diagnostics.ruff",
+  require "none-ls.diagnostics.eslint_d",
+  require "none-ls.formatting.eslint_d",
+  require "none-ls.code_actions.eslint_d",
   -- b.code_actions.refactoring,
-  b.code_actions.eslint_d,
-  -- b.code_actions.gitsigns,
+  b.code_actions.gitsigns,
 }
 
 null_ls.setup {

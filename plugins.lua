@@ -93,6 +93,7 @@ local plugins = {
   -- autocomplete
   {
     "hrsh7th/nvim-cmp",
+    lazy = false,
     opts = require "custom.configs.nvim-cmp",
     dependencies = {
       {
@@ -123,6 +124,9 @@ local plugins = {
     dependencies = {
       {
         "nvimtools/none-ls.nvim",
+        dependencies = {
+          "nvimtools/none-ls-extras.nvim",
+        },
         config = function()
           require "custom.configs.null-ls"
         end,
@@ -162,7 +166,8 @@ local plugins = {
   {
     "glepnir/lspsaga.nvim",
     branch = "main",
-    event = "VeryLazy",
+    event = "LspAttach",
+    -- lazy = false,
     config = function()
       require "custom.configs.lspsaga"
     end,
@@ -206,7 +211,7 @@ local plugins = {
   },
 
   -- dap
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
   {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = { "mfussenegger/nvim-dap" },
