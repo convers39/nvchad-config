@@ -15,6 +15,9 @@ local opts = {
       quit = { "q", "<ESC>" },
     },
   },
+  breadcrumbs = {
+    enable = true,
+  },
   definition = {
     edit = "o",
     vsplit = "<C-c>v",
@@ -54,6 +57,7 @@ local opts = {
     confirm = "<CR>",
     in_select = true,
     whole_project = true,
+    auto_save = true,
   },
   outline = {
     win_position = "right",
