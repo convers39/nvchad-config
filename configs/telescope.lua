@@ -15,6 +15,7 @@ local config = {
       "--line-number",
       "--column",
       "--smart-case",
+      -- "-uu",
     },
     prompt_prefix = " 🔭 ",
     selection_caret = "  ",

@@ -9,7 +9,7 @@ local opts = {
     "html-lsp",
     "json-lsp",
     "emmet-ls",
-    "typescript-language-server",
+    "ts_ls",
     -- "python-language-server",
     "pyright",
     "rust-analyzer",
