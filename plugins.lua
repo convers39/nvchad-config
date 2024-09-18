@@ -347,10 +347,11 @@ local plugins = {
   {
     "folke/trouble.nvim",
     lazy = false,
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require "custom.configs.trouble"
-    end,
+    opts = {},
+    cmd = "Trouble",
+    keys = {
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>" },
+    },
   },
 
   -- ["rmagatti/goto-preview"] = {

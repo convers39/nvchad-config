@@ -117,37 +117,6 @@ M.general = {
     },
     -- outline
     ["<C-b>"] = { "<cmd>Lspsaga outline<cr>" },
-    -- trouble
-    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", noremap = true, silent = true },
-    ["<leader>qq"] = { "<cmd>TroubleToggle quickfix<cr>", noremap = true, silent = true },
-    ["]x"] = {
-      function()
-        require("trouble").next { skip_groups = true, jump = true }
-      end,
-      noremap = true,
-      silent = true,
-    },
-    ["[x"] = {
-      function()
-        require("trouble").previous { skip_groups = true, jump = true }
-      end,
-      noremap = true,
-      silent = true,
-    },
-    ["[X"] = {
-      function()
-        require("trouble").first { skip_groups = true, jump = true }
-      end,
-      noremap = true,
-      silent = true,
-    },
-    ["]X"] = {
-      function()
-        require("trouble").last { skip_groups = true, jump = true }
-      end,
-      noremap = true,
-      silent = true,
-    },
 
     -- lazygit
     ["<leader>gg"] = { "<cmd>LazyGit<CR>", opts = { silent = true, noremap = true } },
@@ -439,7 +408,7 @@ M.telescope = {
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
-    ["<leader>tt"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
+    ["<leader>T"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
     ["<leader>sk"] = { "<cmd>Telescope keymaps<CR>", "Show keymaps" },
     ["<leader>td"] = { "<cmd>TodoTelescope<CR>", "Show todo items" },
