@@ -19,6 +19,7 @@ return {
     "rust",
     "hcl",
     "graphql",
+    "solidity",
     -- "help",
     "terraform",
     "sql",
