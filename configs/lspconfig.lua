@@ -12,7 +12,7 @@ local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "ts_ls", "pyright", "solidity" }
+local servers = { "html", "cssls", "ts_ls", "pyright", "solidity", "biome" }
 
 for _, lsp in ipairs(servers) do
   if lsp == "solidity" then

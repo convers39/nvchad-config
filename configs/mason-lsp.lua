@@ -27,6 +27,7 @@ local opts = {
     "stylua",
     "black",
     "yamlfmt",
+    "biome",
 
     -- dap
     "debugpy",

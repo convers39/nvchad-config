@@ -5,11 +5,11 @@ require("conform").setup {
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { { "prettierd" } },
-    javascriptreact = { { "prettierd" } },
-    typescript = { { "prettierd" } },
-    typescriptreact = { { "prettierd" } },
-    json = { { "prettierd" } },
+    javascript = { { "biome" } },
+    javascriptreact = { { "biome" } },
+    typescript = { { "biome" } },
+    typescriptreact = { { "biome" } },
+    json = { { "biome" } },
     solidity = { { "prettierd" } },
     -- You can use a function here to determine the formatters dynamically
     python = function(bufnr)
