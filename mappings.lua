@@ -36,7 +36,7 @@ M.disabled = {
 M.general = {
   n = {
     ["<leader>;"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
+    -- ["<leader>w"] = { "<cmd>w<cr>", "save current buffer", opts = { nowait = true } },
     -- override with <cmd> to prevent cmd popup from noice
     ["<Esc>"] = { "<cmd>noh<cr>", "No highlight" },
     ["<C-q>"] = { "<C-w>q", "Close window" },
@@ -117,7 +117,6 @@ M.general = {
     },
     -- outline
     ["<C-b>"] = { "<cmd>Lspsaga outline<cr>" },
-
     -- lazygit
     ["<leader>gg"] = { "<cmd>LazyGit<CR>", opts = { silent = true, noremap = true } },
 

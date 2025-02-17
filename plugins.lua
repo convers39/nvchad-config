@@ -95,6 +95,7 @@ local plugins = {
     opts = require "custom.configs.nvim-cmp",
     dependencies = {
       "onsails/lspkind.nvim",
+      "milanglacier/minuet-ai.nvim",
       {
         "zbirenbaum/copilot-cmp",
         config = function()
@@ -102,6 +103,13 @@ local plugins = {
         end,
       },
     },
+  },
+  {
+    "milanglacier/minuet-ai.nvim",
+    event = "InsertEnter",
+    config = function()
+      require "custom.configs.minuet"
+    end,
   },
   {
     "zbirenbaum/copilot.lua",
@@ -130,6 +138,7 @@ local plugins = {
     opts = {
       -- add any opts here
       provider = "copilot",
+      windows = { width = 50 },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
