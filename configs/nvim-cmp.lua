@@ -46,6 +46,10 @@ local kind_icons = {
 }
 
 return {
+  enabled = function()
+    local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+    return not vim.g.disable_cmp and buftype ~= "prompt"
+  end,
   sources = {
     { name = "copilot", priority = 1000, max_item_count = 3 },
     { name = "codeium", priority = 900, max_item_count = 3 },
@@ -59,6 +63,8 @@ return {
   },
   performance = {
     fetching_timeout = 2000,
+    debounce = 150,
+    throttle = 1000,
   },
   formatting = {
     format = function(entry, vim_item)
@@ -95,11 +101,16 @@ return {
     -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-u>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.close()
+    ["<C-e>"] = cmp.mapping(function(fallback)
+      local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+      if buftype == "prompt" then
+        fallback()
       else
-        cmp.complete()
+        if cmp.visible() then
+          cmp.close()
+        else
+          cmp.complete()
+        end
       end
     end, { "i" }),
   },

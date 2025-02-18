@@ -47,6 +47,25 @@ autocmd("BufWritePre", {
   end,
 })
 
+vim.g.disable_cmp = false
+usercmd("CmpDisable", function(args)
+  if args.bang then
+    -- CmpDisable! will disable completion just for this buffer
+    vim.b.disable_cmp = true
+  else
+    vim.g.disable_cmp = true
+  end
+end, {
+  desc = "Disable nvim-cmp",
+  bang = true,
+})
+usercmd("CmpEnable", function()
+  vim.b.disable_cmp = false
+  vim.g.disable_cmp = false
+end, {
+  desc = "Re-enable nvim-cmp",
+})
+
 vim.g.disable_autoformat = false
 usercmd("FormatDisable", function(args)
   if args.bang then
