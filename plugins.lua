@@ -96,6 +96,7 @@ local plugins = {
     dependencies = {
       "onsails/lspkind.nvim",
       "milanglacier/minuet-ai.nvim",
+      "Exafunction/codeium.nvim",
       {
         "zbirenbaum/copilot-cmp",
         config = function()
@@ -125,6 +126,17 @@ local plugins = {
           -- enable to use with virtual text
           enabled = false,
           auto_trigger = true,
+        },
+      }
+    end,
+  },
+  {
+    "Exafunction/codeium.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("codeium").setup {
+        virtual_text = {
+          enabled = true,
         },
       }
     end,
