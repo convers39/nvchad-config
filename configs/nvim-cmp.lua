@@ -84,6 +84,7 @@ return {
       end
       cmp.select_prev_item { behavior = cmp.SelectBehavior.Insert }
     end, { "i" }),
+    ["<C-q>"] = cmp.mapping.abort(),
     ["<C-j>"] = cmp.mapping(function(fallback)
       if not cmp.visible() then
         cmp.complete { behavior = cmp.SelectBehavior.Select }
