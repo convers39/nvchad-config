@@ -48,41 +48,37 @@ autocmd("BufWritePre", {
 })
 
 vim.g.disable_cmp = false
-usercmd("CmpDisable", function(args)
-  if args.bang then
-    -- CmpDisable! will disable completion just for this buffer
-    vim.b.disable_cmp = true
+usercmd("CmpToggle", function(args)
+  if vim.b.disable_cmp or vim.g.disable_cmp then
+    vim.b.disable_cmp = false
+    vim.g.disable_cmp = false
   else
-    vim.g.disable_cmp = true
+    if args.bang then
+      vim.b.disable_cmp = true
+    else
+      vim.g.disable_cmp = true
+    end
   end
 end, {
-  desc = "Disable nvim-cmp",
+  desc = "Toggle nvim-cmp",
   bang = true,
-})
-usercmd("CmpEnable", function()
-  vim.b.disable_cmp = false
-  vim.g.disable_cmp = false
-end, {
-  desc = "Re-enable nvim-cmp",
 })
 
 vim.g.disable_autoformat = false
-usercmd("FormatDisable", function(args)
-  if args.bang then
-    -- FormatDisable! will disable formatting just for this buffer
-    vim.b.disable_autoformat = true
+usercmd("AutoFormatToggle", function(args)
+  if vim.b.disable_autoformat or vim.g.disable_autoformat then
+    vim.b.disable_autoformat = false
+    vim.g.disable_autoformat = false
   else
-    vim.g.disable_autoformat = true
+    if args.bang then
+      vim.b.disable_autoformat = true
+    else
+      vim.g.disable_autoformat = true
+    end
   end
 end, {
-  desc = "Disable autoformat-on-save",
+  desc = "Toggle autoformat-on-save",
   bang = true,
-})
-usercmd("FormatEnable", function()
-  vim.b.disable_autoformat = false
-  vim.g.disable_autoformat = false
-end, {
-  desc = "Re-enable autoformat-on-save",
 })
 
 -- test text, with some characters, separated by random signs. see if it is working correctly. --
