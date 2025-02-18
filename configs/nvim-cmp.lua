@@ -47,14 +47,15 @@ local kind_icons = {
 
 return {
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "copilot" },
-    { name = "minuet" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
-    { name = "crates" },
+    { name = "copilot", priority = 1000, max_item_count = 3 },
+    { name = "codeium", priority = 900, max_item_count = 3 },
+    { name = "minuet", priority = 900, max_item_count = 3 },
+    { name = "nvim_lsp", priority = 800, max_item_count = 3 },
+    { name = "luasnip", priority = 750, max_item_count = 3 },
+    { name = "buffer", priority = 250, max_item_count = 3 },
+    { name = "nvim_lua", priority = 250, max_item_count = 3 },
+    { name = "path", priority = 250, max_item_count = 3 },
+    { name = "crates", priority = 250, max_item_count = 3 },
   },
   performance = {
     fetching_timeout = 2000,
@@ -69,17 +70,36 @@ return {
     end,
   },
   mapping = {
-    -- ["<CR>"] = cmp.mapping(function(fallback)
-    --   -- use the internal non-blocking call to check if cmp is visible
-    --   if cmp.core.view:visible() then
-    --     cmp.confirm { select = true }
-    --   else
-    --     fallback()
-    --   end
-    -- end),
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<CR>"] = cmp.mapping(function(fallback)
+      -- use the internal non-blocking call to check if cmp is visible
+      if cmp.visible() then
+        cmp.confirm { select = true }
+      else
+        fallback()
+      end
+    end),
+    ["<C-k>"] = cmp.mapping(function(fallback)
+      if not cmp.visible() then
+        cmp.complete { behavior = cmp.SelectBehavior.Select }
+      end
+      cmp.select_prev_item { behavior = cmp.SelectBehavior.Insert }
+    end, { "i" }),
+    ["<C-j>"] = cmp.mapping(function(fallback)
+      if not cmp.visible() then
+        cmp.complete { behavior = cmp.SelectBehavior.Select }
+      end
+      cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
+    end, { "i" }),
+    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+    -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-u>"] = cmp.mapping.scroll_docs(4),
+    ["<C-e>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.close()
+      else
+        cmp.complete()
+      end
+    end, { "i" }),
   },
 }
